@@ -97,5 +97,25 @@
         "Warmup"   : 2,
         "Cooldown" : 2,
         "Runtime"  : 90
+    }, 
+    "NtttcpIPv6": {
+        "Iterations" : 5,
+        "StartPort"  : 50000,
+        "tcp" : {
+            "BufferLen"     : [65536],
+            "Connections"   : [64],
+            "OutstandingIo" :[16],
+            "Options": "6"
+        },
+        "udp" : {
+            "BufferLen"     : [1372],
+            "Connections"   : [64],
+            "OutstandingIo" : null,
+            "Options"       : "-6"
+        },
+        "Warmup"   : 2,
+        "Cooldown" : 2,
+        "Runtime"  : 90
     }
+
 }

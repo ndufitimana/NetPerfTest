@@ -748,13 +748,21 @@ param(
 
     try {
         # Establish the Remote PS session with Receiver
+
+        #add [] for IPv6 addresses
+        if ($RecvComputerName -contains ':') {  
+            $RecvComputerName = "[$RecvComputerName]"
+        }
         $recvPSSession = New-PSSession -ComputerName $RecvComputerName @recvCredSplat
 
         if($recvPSsession -eq $null) {
             LogWrite "Error connecting to Host: $($RecvComputerName)"
             return
         }
-
+        # Add [] for IPv6 addresses
+        if ($SendComputerName -contains ':') {  
+            $SendComputerName = "[$SendComputerName]"
+        }
         # Establish the Remote PS session with Sender
         $sendPSSession = New-PSSession -ComputerName $SendComputerName @sendCredSplat
 
